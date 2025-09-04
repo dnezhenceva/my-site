@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моё хобби - Фотография</title>
+    <!-- Подключаем шрифты с Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;700&family=Roboto:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+    <!-- Подключаем наш файл стилей -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Шапка с меню -->
+    <header>
+        <nav>
+            <ul class="menu">
+                <li><a href="#main">Главная</a></li>
+                <li><a href="#about">Обо мне</a></li>
+                <li><a href="#gear">Мои инструменты</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Главная секция с заголовком и фото -->
+        <section id="main" class="hero">
+            <h1>Мир через объектив</h1>
+            <p>Фотография — это моё увлечение, способ запечатлеть мгновения и поделиться своим взглядом на мир.</p>
+            <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&auto=format&fit=crop&w=1050&q=80" alt="Фотоаппарат на штативе на фоне горного пейзажа" class="hero-image">
+        </section>
+
+        <!-- Секция "Обо мне" -->
+        <section id="about" class="about">
+            <h2>Почему я фотографирую?</h2>
+            <p>Всё началось несколько лет назад с обычного смартфона. Мне нравилось ловить красивое освещение, интересные ракурсы и эмоции людей. Со временем хобби переросло в нечто большее. Теперь я снимаю на зеркальную камеру, изучаю композицию и обработку. Для меня фотография — это не просто картинка, это история, настроение и частичка меня самого.</p>
+            <div class="gallery">
+                <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Пейзаж с горами и озером">
+                <img src="https://images.unsplash.com/photo-1526662092590-e314cbeaf8da?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Портрет девушки в городе">
+                <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Макросъемка капель воды">
+            </div>
+        </section>
+
+        <!-- Секция с таблицей -->
+        <section id="gear" class="gear">
+            <h2>Мои инструменты</h2>
+            <p>Вот оборудование, которое я использую для создания кадров:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Тип оборудования</th>
+                        <th>Модель</th>
+                        <th>Для чего использую</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Камера</td>
+                        <td>Canon EOS R6</td>
+                        <td>Основная съемка: портреты, пейзажи, события</td>
+                    </tr>
+                    <tr>
+                        <td>Объектив</td>
+                        <td>RF 24-70mm f/2.8L</td>
+                        <td>Универсальный объектив для большинства задач</td>
+                    </tr>
+                    <tr>
+                        <td>Объектив</td>
+                        <td>RF 70-200mm f/2.8L</td>
+                        <td>Для съемки спорта, дикой природы и портретов</td>
+                    </tr>
+                    <tr>
+                        <td>Вспышка</td>
+                        <td>Godox V1</td>
+                        <td>Съемка в условиях недостаточного освещения</td>
+                    </tr>
+                    <tr>
+                        <td>Штатив</td>
+                        <td>Manfrotto Befree Advanced</td>
+                        <td>Пейзажная съемка и long exposure</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <!-- Футер -->
+    <footer id="contacts">
+        <div class="footer-content">
+            <p>© 2024 Моё хобби: Фотография. Все права на изображения принадлежат их авторам.</p>
+            <p>Связаться со мной: 
+                <a href="mailto:photo@example.com">photo@example.com</a> | 
+                <a href="https://t.me/myphotoblog" target="_blank">Телеграм</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
