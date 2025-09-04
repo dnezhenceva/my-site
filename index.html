@@ -3,98 +3,537 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Моё хобби - Фотография</title>
-    <!-- Подключаем шрифты с Google Fonts -->
+    <title>Приют для животных "Добрый дом"</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;700&family=Roboto:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
-    <!-- Подключаем наш файл стилей -->
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Шапка с навигацией */
+        header {
+            background: linear-gradient(to right, #3498db, #2c3e50);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            font-size: 28px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Герой секция */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1546182990-dffeafbe841d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            margin-bottom: 40px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #e74c3c;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+        }
+        
+        /* О приюте */
+        .about {
+            padding: 60px 0;
+            background-color: white;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Питомцы */
+        .pets {
+            padding: 60px 0;
+            background-color: #f2f7fd;
+        }
+        
+        .pets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .pet-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .pet-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .pet-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .pet-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .pet-card:hover .pet-image img {
+            transform: scale(1.1);
+        }
+        
+        .pet-info {
+            padding: 20px;
+        }
+        
+        .pet-info h3 {
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        /* Таблица */
+        .info {
+            padding: 60px 0;
+            background-color: white;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f5f9ff;
+        }
+        
+        tr:hover {
+            background-color: #e8f4ff;
+        }
+        
+        /* Как помочь */
+        .help {
+            padding: 60px 0;
+            background-color: #f2f7fd;
+        }
+        
+        .help-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .help-option {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        
+        .help-option i {
+            font-size: 40px;
+            color: #3498db;
+            margin-bottom: 20px;
+        }
+        
+        /* Футер */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        
+        .footer-section p, .footer-section a {
+            margin-bottom: 10px;
+            color: #ecf0f1;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .footer-section a:hover {
+            color: #3498db;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            margin-right: 15px;
+            font-size: 20px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+        }
+</style>
 </head>
 <body>
     <!-- Шапка с меню -->
     <header>
-        <nav>
-            <ul class="menu">
-                <li><a href="#main">Главная</a></li>
-                <li><a href="#about">Обо мне</a></li>
-                <li><a href="#gear">Мои инструменты</a></li>
-                <li><a href="#contacts">Контакты</a></li>
-            </ul>
-        </nav>
+        <div class="container header-content">
+            <div class="logo">
+                <span>🐾 Добрый дом</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">О приюте</a></li>
+                    <li><a href="#pets">Наши питомцы</a></li>
+                    <li><a href="#info">Статистика</a></li>
+                    <li><a href="#help">Как помочь</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <main>
-        <!-- Главная секция с заголовком и фото -->
-        <section id="main" class="hero">
-            <h1>Мир через объектив</h1>
-            <p>Фотография — это моё увлечение, способ запечатлеть мгновения и поделиться своим взглядом на мир.</p>
-            <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&auto=format&fit=crop&w=1050&q=80" alt="Фотоаппарат на штативе на фоне горного пейзажа" class="hero-image">
-        </section>
+    <!-- Герой секция -->
+    <section class="hero">
+        <div class="container">
+            <h1>Подарите дом тем, кто в нем нуждается</h1>
+            <p>В нашем приюте более 200 животных ждут своих заботливых хозяев. Присоединяйтесь к нашей миссии!</p>
+            <a href="#pets" class="btn">Найти питомца</a>
+        </div>
+    </section>
 
-        <!-- Секция "Обо мне" -->
-        <section id="about" class="about">
-            <h2>Почему я фотографирую?</h2>
-            <p>Всё началось несколько лет назад с обычного смартфона. Мне нравилось ловить красивое освещение, интересные ракурсы и эмоции людей. Со временем хобби переросло в нечто большее. Теперь я снимаю на зеркальную камеру, изучаю композицию и обработку. Для меня фотография — это не просто картинка, это история, настроение и частичка меня самого.</p>
-            <div class="gallery">
-                <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Пейзаж с горами и озером">
-                <img src="https://images.unsplash.com/photo-1526662092590-e314cbeaf8da?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Портрет девушки в городе">
-                <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Макросъемка капель воды">
+    <!-- О приюте -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>О нашем приюте</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Приют для животных "Добрый дом" работает с 2010 года. За это время мы помогли найти новых хозяев для более чем 5000 животных.</p>
+                    <p>Наш приют - это не просто место временного содержания животных, это большой проект, где мы лечим, реабилитируем и социализируем животных перед тем, как найти им новый дом.</p>
+                    <p>Мы стремимся создать общество, в котором каждый питомец имеет loving дом, а люди относятся к животным с уважением и заботой.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1564594736624-def7a10ab047?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Волонтер приюта с собакой">
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Секция с таблицей -->
-        <section id="gear" class="gear">
-            <h2>Мои инструменты</h2>
-            <p>Вот оборудование, которое я использую для создания кадров:</p>
+    <!-- Питомцы -->
+    <section id="pets" class="pets">
+        <div class="container">
+            <h2>Наши питомцы ищут дом</h2>
+            <div class="pets-grid">
+                <div class="pet-card">
+                    <div class="pet-image">
+                        <img src="cat musya.jpg" alt="Собака Рекс">
+                    </div>
+                    <div class="pet-info">
+                        <h3>Рекс</h3>
+                        <p>Возраст: 2 года</p>
+                        <p>Добрый и игривый лабрадор, обожает детей и долгие прогулки.</p>
+                    </div>
+                </div>
+                
+                <div class="pet-card">
+                    <div class="pet-image">
+                        <img src="" alt="Кошка Муся">
+                    </div>
+                    <div class="pet-info">
+                        <h3>Муся</h3>
+                        <p>Возраст: 1.5 года</p>
+                        <p>Ласковая и спокойная кошка, приучена к лотку и когтеточке.</p>
+                    </div>
+                </div>
+                
+                <div class="pet-card">
+                    <div class="pet-image">
+                        <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Собака Барсик">
+                    </div>
+                    <div class="pet-info">
+                        <h3>Барсик</h3>
+                        <p>Возраст: 4 года</p>
+                        <p>Верный и преданный друг, хорошо ладит с другими животными.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Таблица -->
+    <section id="info" class="info">
+        <div class="container">
+            <h2>Статистика приюта</h2>
+            <p>За последний год нам удалось помочь многим животным обрести новый дом:</p>
+            
             <table>
                 <thead>
                     <tr>
-                        <th>Тип оборудования</th>
-                        <th>Модель</th>
-                        <th>Для чего использую</th>
+                        <th>Показатель</th>
+                        <th>2022 год</th>
+                        <th>2023 год</th>
+                        <th>Изменение</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Камера</td>
-                        <td>Canon EOS R6</td>
-                        <td>Основная съемка: портреты, пейзажи, события</td>
+                        <td>Пристроено животных</td>
+                        <td>412</td>
+                        <td>538</td>
+                        <td>+30%</td>
                     </tr>
                     <tr>
-                        <td>Объектив</td>
-                        <td>RF 24-70mm f/2.8L</td>
-                        <td>Универсальный объектив для большинства задач</td>
+                        <td>Поступило в приют</td>
+                        <td>387</td>
+                        <td>356</td>
+                        <td>-8%</td>
                     </tr>
                     <tr>
-                        <td>Объектив</td>
-                        <td>RF 70-200mm f/2.8L</td>
-                        <td>Для съемки спорта, дикой природы и портретов</td>
+                        <td>Волонтеров</td>
+                        <td>45</td>
+                        <td>68</td>
+                        <td>+51%</td>
                     </tr>
                     <tr>
-                        <td>Вспышка</td>
-                        <td>Godox V1</td>
-                        <td>Съемка в условиях недостаточного освещения</td>
+                        <td>Проведено операций</td>
+                        <td>215</td>
+                        <td>278</td>
+                        <td>+29%</td>
                     </tr>
                     <tr>
-                        <td>Штатив</td>
-                        <td>Manfrotto Befree Advanced</td>
-                        <td>Пейзажная съемка и long exposure</td>
+                        <td>Найдено потеряшек</td>
+                        <td>87</td>
+                        <td>112</td>
+                        <td>+28%</td>
                     </tr>
                 </tbody>
             </table>
-        </section>
-    </main>
+        </div>
+    </section>
+
+    <!-- Как помочь -->
+    <section id="help" class="help">
+        <div class="container">
+            <h2>Как вы можете помочь</h2>
+            <div class="help-options">
+                <div class="help-option">
+                    <div>❤️</div>
+                    <h3>Взять питомца</h3>
+                    <p>Подарите дом и заботу тому, кто в этом нуждается. Мы поможем с выбором и консультацией.</p>
+                </div>
+                
+                <div class="help-option">
+                    <div>🤝</div>
+                    <h3>Стать волонтером</h3>
+                    <p>Помогите ухаживать за животными, гулять с ними или оказывать профессиональную помощь.</p>
+                </div>
+                
+                <div class="help-option">
+                    <div>💰</div>
+                    <h3>Сделать пожертвование</h3>
+                    <p>Любая сумма поможет нам покупать корм, лекарства и содержать приют.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Футер -->
     <footer id="contacts">
-        <div class="footer-content">
-            <p>© 2024 Моё хобби: Фотография. Все права на изображения принадлежат их авторам.</p>
-            <p>Связаться со мной: 
-                <a href="mailto:photo@example.com">photo@example.com</a> | 
-                <a href="https://t.me/myphotoblog" target="_blank">Телеграм</a>
-            </p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <p>г. Москва, ул. Добрых сердец, 15</p>
+                    <p>Телефон: +7 (495) 123-45-67</p>
+                    <p>Email: info@dobrydom.ru</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Часы работы</h3>
+                    <p>Пн-Пт: 9:00 - 18:00</p>
+                    <p>Сб-Вс: 10:00 - 16:00</p>
+                    <p>Выходные: только по записи</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Следите за нами</h3>
+                    <div class="social-icons">
+                        <a href="#">VK</a>
+                        <a href="#">Telegram</a>
+                        <a href="#">YouTube</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2023 Приют для животных "Добрый дом". Все права защищены.</p>
+            </div>
         </div>
     </footer>
 </body>
-</html>
+</html>    
